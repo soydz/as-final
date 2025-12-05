@@ -9,12 +9,7 @@ export const getWeatherByCity = async(ciudad: string, pais: string) => {
     
     try {
 
-        const {data} = await weatherApi.get<WeatherResponse>('/',{
-            params: {
-                pais,
-                ciudad
-            }
-        });
+        const {data} = await weatherApi.get<WeatherResponse>(`${pais}/${ciudad}`);
 
         if(!(typeof data === "object")) {
             return {

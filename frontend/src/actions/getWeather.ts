@@ -9,7 +9,7 @@ export const getAllWeather = async() => {
     
     try {
 
-        const {data} = await weatherApi.get('/');
+        const {data} = await weatherApi.get('/all');
         if(!(Array.isArray(data) && data.every(item => typeof item === "object"))) {
             return {
                 data: [],
