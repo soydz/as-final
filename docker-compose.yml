@@ -1,0 +1,17 @@
+services:
+  db-clima:
+    image: postgres:15
+    container_name: db_clima
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: 73
+      POSTGRES_DB: db-clima
+    ports:
+      - "5440:5432"
+    volumes:
+      - data-clima:/var/lib/postgresql/data
+
+
+volumes:
+  data-clima: {}
+
