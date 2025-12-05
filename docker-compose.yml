@@ -10,7 +10,17 @@ services:
       - "5440:5432"
     volumes:
       - data-clima:/var/lib/postgresql/data
-
+  
+  clima-api:
+    build:
+      context: ./clima-api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_URL=jdbc:postgresql://localhost:5440/db-clima
+      - DB_USERNAME=dev
+      - DB_PASSWORD=73
 
 volumes:
   data-clima: {}
