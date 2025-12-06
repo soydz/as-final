@@ -21,6 +21,31 @@ services:
       - DB_URL=jdbc:postgresql://localhost:5440/db-clima
       - DB_USERNAME=dev
       - DB_PASSWORD=73
+  frontend:
+
+    build:
+
+      context: ./frontend
+
+    container_name: frontend_dev
+
+    ports:
+
+      - "5173:5173"
+
+    volumes:
+
+      - ./frontend:/app
+
+      - /app/node_modules
+
+    environment:
+
+      - VITE_API_URL=http://backend:8000
+
+    depends_on:
+
+      - clima-api
 
 volumes:
   data-clima: {}
