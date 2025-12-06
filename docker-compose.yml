@@ -31,7 +31,7 @@ services:
       - ./frontend:/app
       - /app/node_modules
     environment:
-      - VITE_API_URL=http://db-clima:8000
+      - VITE_API_URL=http://clima-api:8000
     depends_on:
       - clima-api
 volumes:
